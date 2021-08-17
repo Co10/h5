@@ -657,7 +657,7 @@ button:focus { outline-width: 0; }
                     document.querySelector("#mod_01 input").checked = false;
                 }
             }
-            else if (url.indexOf("http://h5.kxgcw.com/1625189626/assets/ui/PC/mainCity/mainCity.xml") > -1 && urlcasetimes === 0) {
+            else if (url.indexOf("assets/ui/PC/mainCity") > -1 && urlcasetimes === 0) {
                 urlcasetimes++;
                 checking();
             }
