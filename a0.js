@@ -377,9 +377,6 @@ button:focus { outline-width: 0; }
     style.appendChild(document.createTextNode(css));
     head.appendChild(style);
 
-    (function(){
-        "use strict";
-    
         let thediv = document.createElement("div");
         thediv.innerHTML = `
         <div>
@@ -432,10 +429,6 @@ button:focus { outline-width: 0; }
         `;
         let body = document.body || document.getElementsByTagName("body")[0];
         body.appendChild(thediv);
-    })();
-
-    (function() {
-        "use strict";
     
         let thet = [0.5, 1, 5, 10, 18];
         let theF = document.getElementById("q_btn_app");
@@ -501,10 +494,7 @@ button:focus { outline-width: 0; }
     
         ltxt.addEventListener("DOMSubtreeModified", changeSpeed)
         document.querySelector("#mod_01 input").addEventListener("change", changeSpeed);
-    })();
 
-    (function(){
-        "use strict";
         function addBoard() {
             var a = document.createElement("div");
             a.innerHTML = `<div id="pvpBoard">
@@ -527,12 +517,7 @@ button:focus { outline-width: 0; }
             })
         }
         addBoard();
-    
-    })();
 
-    (function(){
-        "use strict";
-    
         function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
             elmnt.onmousedown = dragMouseDown;
@@ -646,11 +631,7 @@ button:focus { outline-width: 0; }
                 r0.style.display = "none";
             }
         }
-    
-    })();
 
-    (function(){
-        "use strict";
         function listenAjax() {
             var originOpen = XMLHttpRequest.prototype.open;
             var originSend = XMLHttpRequest.prototype.send;
@@ -987,6 +968,4 @@ button:focus { outline-width: 0; }
         //alert(console.log);
     }
     
-    })();
-
 })();
