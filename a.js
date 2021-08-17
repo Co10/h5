@@ -76,6 +76,7 @@ span {
 .eyes:focus { outline-width: 0; }
 
 #right_eye {
+    display: none;
     left: unset;
     right: 0;
     transform: translate(-40px, -50%);
