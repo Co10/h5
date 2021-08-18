@@ -655,6 +655,14 @@ button:focus { outline-width: 0; }
                 if (document.querySelector("#mod_01 input").checked === true) {
                     // console.log("检测到您可能点击了PVP，已自动关闭加速(如果不是，请忽略)");
                     document.querySelector("#mod_01 input").checked = false;
+                    if (window.Laya.timer.scale !== undefined) {
+                        window.Laya.timer.scale = 1;
+                    }
+                    let leye = document.getElementById("the_left_eye");
+                    if (leye) {
+                        leye.style.background = "#c9c8c6ba";
+                        leye.style.animation = "none";
+                    }
                 }
             }
             else if (url.indexOf("assets/ui/PC/mainCity") > -1 && urlcasetimes === 0) {
