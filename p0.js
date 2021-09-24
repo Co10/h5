@@ -567,13 +567,9 @@ button:focus { outline-width: 0; }
         let l0 = document.getElementsByClassName("back_ground")[0];
         let r0 = document.getElementById("pvpBoard");
     
-        window.onclick = function(event) {
-            if (l0) {
-                if (event.target === l0) {
-                    l0.style.display = "none";
-                }
-            }
-        }
+        l0.addEventListener('click', e => {
+        	if(e.target === e.currentTarget) l0.style.display = "none";
+        });
     
         if (le) {
             le.addEventListener("click", function() {
