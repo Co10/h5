@@ -496,6 +496,13 @@
         background-color: #ea76ffb8;
     }
     
+    #close_my_new_board {
+        display: block;
+        position: absolute;
+        top: -2px;
+        left: 45%;
+        background-color: #e55959d1;
+    }
         #pvpBoard {
             border-radius: 15px;
             display: none;
@@ -902,20 +909,27 @@
                 <div class="right_info"> </div>
             </div>
             <div class="pvpBoardSpeed">速</div>
+            <div id="close_my_new_board">关闭</div>
         </div>`
         document.body.appendChild(a);
-        let b = document.getElementById("pvpBoard");
-        document.addEventListener("click", function(e) {
-            let xxxx = document.getElementById("pvpclickshowmore");
-            let msta = 'block'
-            if (!b.contains(e.target)) {
-                msta = 'none';
-            }
-            if (xxxx && e.target === xxxx) {
-                msta = 'block';
-            }
-            b.style.display = msta;
-        });
+        // let b = document.getElementById("pvpBoard");
+        // document.addEventListener("click", function(e) {
+        //     let xxxx = document.getElementById("pvpclickshowmore");
+        //     let msta = 'block'
+        //     if (!b.contains(e.target)) {
+        //         msta = 'none';
+        //     }
+        //     if (xxxx && e.target === xxxx) {
+        //         msta = 'block';
+        //     }
+        //     b.style.display = msta;
+        // });
+        let b = document.getElementById("close_my_new_board");
+        if (b) {
+            b.addEventListener("click", () => {
+                document.getElementById("pvpBoard").style.display = "none";
+            })
+        }
         let c = document.getElementsByClassName("pvpBoardSpeed")[0];
         c.addEventListener("click", () => {
             let fc = document.getElementById("func_background");
