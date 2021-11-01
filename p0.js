@@ -876,14 +876,19 @@
         }
     }
     function touchElementMove(elmnt) {
-        elmnt.addEventListener('touchmove', function(e) {
-            var touchLocation = e.targetTouches[0];
-            elmnt.style.left = touchLocation.pageX + elmnt.style.width / 2 + 'px';
-            elmnt.style.top = touchLocation.pageY + elmnt.style.height / 2 + 'px';
-        })
-        elmnt.addEventListener('touchend', function(e) {
-            var x = parseInt(elmnt.style.left);
-            var y = parseInt(elmnt.style.top);
+        var startX = 0, startY = 0, x = 0, y = 0;
+        elmnt.addEventListener('touchstart', function (e) {
+            startX = e.targetTouches[0].pageX;
+            startY = e.targetTouches[0].pageY;
+            x = this.offsetLeft;
+            y = this.offsetTop;
+        });
+        elmnt.addEventListener('touchmove', function (e) {
+            var moveX = e.targetTouches[0].pageX - startX;
+            var moveY = e.targetTouches[0].pageY - startY;
+            this.style.left = x + moveX + 'px';
+            this.style.top = y + moveY + 'px';
+            e.preventDefault();
         })
     }
     function dragTouchELe(ele) {
@@ -1423,10 +1428,17 @@
     function disableEyes() {
         let eye = document.getElementById("x_eye");
         try {
-            eye.style['animation-play-state'] = 'paused';
-            eye.setAttribute('class', 'eye');
-            eye.style.background = '#b6c4d378';
-            eye.children[0].setAttribute("class", 'jewels eye3');
+            if (Laya.scale.timer !== 1) {
+                eye.style['animation-play-state'] = 'running';
+                eye.setAttribute('class', 'eye');
+                eye.style.background = 'radial-gradient(at center center, #fd2312, #920205)';
+                eye.children[0].setAttribute("class", 'jewels eye3');
+            } else {
+                eye.style['animation-play-state'] = 'paused';
+                eye.setAttribute('class', 'eye');
+                eye.style.background = '#b6c4d378';
+                eye.children[0].setAttribute("class", 'jewels eye3');
+            }
         } catch(e) {
             console.error(e);
         }
